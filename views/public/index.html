@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto Tech Soluciones - Servicios Técnicos Especializados en Bogotá</title>
+    <meta name="description" content="Servicios técnicos especializados en Bogotá: reparación de computadores, instalación de redes, soporte técnico, recuperación de datos y más. Atención 24/7.">
+    <meta name="keywords" content="reparación computadores Bogotá, soporte técnico, instalación redes, recuperación datos, mantenimiento equipos">
+    <meta name="author" content="Punto Tech Soluciones">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://puntotechsoluciones.com/">
+    <meta property="og:title" content="Punto Tech Soluciones - Servicios Técnicos Especializados">
+    <meta property="og:description" content="Servicios técnicos especializados en Bogotá: reparación de computadores, instalación de redes, soporte técnico y más.">
+    <meta property="og:image" content="https://puntotechsoluciones.com/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://puntotechsoluciones.com/">
+    <meta property="twitter:title" content="Punto Tech Soluciones - Servicios Técnicos Especializados">
+    <meta property="twitter:description" content="Servicios técnicos especializados en Bogotá: reparación de computadores, instalación de redes, soporte técnico y más.">
+    <meta property="twitter:image" content="https://puntotechsoluciones.com/images/twitter-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://puntotechsoluciones.com/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Punto Tech Soluciones",
+        "description": "Servicios técnicos especializados en reparación de computadores, instalación de redes y soporte técnico en Bogotá",
+        "url": "https://puntotechsoluciones.com",
+        "telephone": "+57-300-123-4567",
+        "email": "contacto@techservicio.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bogotá",
+            "addressCountry": "Colombia"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "4.7110",
+            "longitude": "-74.0721"
+        },
+        "openingHours": "Mo-Su 00:00-23:59",
+        "priceRange": "$$",
+        "serviceArea": {
+            "@type": "City",
+            "name": "Bogotá"
+        }
+    }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neonBlue': '#00f3ff',
+                        'neonPink': '#ff00ff',
+                        'neonPurple': '#9d00ff',
+                        'cyberBlack': '#0a0a0a',
+                        'darkTech': '#1a1a2e',
+                        'techGray': '#16213e'
+                    },
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'monospace'],
+                        'rajdhani': ['Rajdhani', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Estilos personalizados */
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            overflow-x: hidden;
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 3px currentColor, 0 0 6px currentColor, 0 0 9px currentColor;
+        }
+        
+        .tech-gradient {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+        }
+        
+        .tech-card {
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            border-color: rgba(0, 243, 255, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .neon-button {
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .neon-button:hover {
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.8), 0 0 30px rgba(0, 243, 255, 0.6);
+            transform: translateY(-2px);
+        }
+        
+        .glitch {
+            position: relative;
+            color: #fff;
+            font-size: 4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            animation: glitch-skew 1s infinite linear alternate-reverse;
+        }
+        
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch::before {
+            animation: glitch-anim 0.3s infinite linear alternate-reverse;
+            color: #ff00ff;
+            z-index: -1;
+        }
+        
+        .glitch::after {
+            animation: glitch-anim2 0.3s infinite linear alternate-reverse;
+            color: #00f3ff;
+            z-index: -2;
+        }
+        
+        @keyframes glitch-anim {
+            0% {
+                clip: rect(42px, 9999px, 44px, 0);
+                transform: skew(0.85deg);
+            }
+            5% {
+                clip: rect(12px, 9999px, 59px, 0);
+                transform: skew(0.4deg);
+            }
+            10% {
+                clip: rect(48px, 9999px, 29px, 0);
+                transform: skew(0.7deg);
+            }
+            15% {
+                clip: rect(42px, 9999px, 73px, 0);
+                transform: skew(0.1deg);
+            }
+            20% {
+                clip: rect(63px, 9999px, 27px, 0);
+                transform: skew(0.2deg);
+            }
+            25% {
+                clip: rect(34px, 9999px, 55px, 0);
+                transform: skew(1.1deg);
+            }
+            30% {
+                clip: rect(86px, 9999px, 73px, 0);
+                transform: skew(0.7deg);
+            }
+            35% {
+                clip: rect(20px, 9999px, 20px, 0);
+                transform: skew(0.1deg);
+            }
+            40% {
+                clip: rect(26px, 9999px, 60px, 0);
+                transform: skew(0.3deg);
+            }
+            45% {
+                clip: rect(25px, 9999px, 66px, 0);
+                transform: skew(0.2deg);
+            }
+            50% {
+                clip: rect(57px, 9999px, 98px, 0);
+                transform: skew(0.5deg);
+            }
+            55% {
+                clip: rect(5px, 9999px, 46px, 0);
+                transform: skew(0.05deg);
+            }
+            60% {
+                clip: rect(82px, 9999px, 31px, 0);
+                transform: skew(0.35deg);
+            }
+            65% {
+                clip: rect(54px, 9999px, 27px, 0);
+                transform: skew(0.04deg);
+            }
+            70% {
+                clip: rect(28px, 9999px, 99px, 0);
+                transform: skew(0.08deg);
+            }
+            75% {
+                clip: rect(45px, 9999px, 69px, 0);
+                transform: skew(0.16deg);
+            }
+            80% {
+                clip: rect(23px, 9999px, 85px, 0);
+                transform: skew(-0.07deg);
+            }
+            85% {
+                clip: rect(67px, 9999px, 44px, 0);
+                transform: skew(0.24deg);
+            }
+            90% {
+                clip: rect(10px, 9999px, 61px, 0);
+                transform: skew(0.08deg);
+            }
+            95% {
+                clip: rect(78px, 9999px, 14px, 0);
+                transform: skew(-0.05deg);
+            }
+            100% {
+                clip: rect(65px, 9999px, 42px, 0);
+                transform: skew(0.01deg);
+            }
+        }
+        
+        @keyframes glitch-anim2 {
+            0% {
+                clip: rect(65px, 9999px, 100px, 0);
+                transform: skew(0.02deg);
+            }
+            5% {
+                clip: rect(52px, 9999px, 74px, 0);
+                transform: skew(0.05deg);
+            }
+            10% {
+                clip: rect(79px, 9999px, 85px, 0);
+                transform: skew(0.05deg);
+            }
+            15% {
+                clip: rect(75px, 9999px, 5px, 0);
+                transform: skew(0.05deg);
+            }
+            20% {
+                clip: rect(67px, 9999px, 61px, 0);
+                transform: skew(0.05deg);
+            }
+            25% {
+                clip: rect(14px, 9999px, 79px, 0);
+                transform: skew(0.05deg);
+            }
+            30% {
+                clip: rect(1px, 9999px, 66px, 0);
+                transform: skew(0.05deg);
+            }
+            35% {
+                clip: rect(86px, 9999px, 30px, 0);
+                transform: skew(0.05deg);
+            }
+            40% {
+                clip: rect(23px, 9999px, 98px, 0);
+                transform: skew(0.05deg);
+            }
+            45% {
+                clip: rect(85px, 9999px, 72px, 0);
+                transform: skew(0.05deg);
+            }
+            50% {
+                clip: rect(71px, 9999px, 75px, 0);
+                transform: skew(0.05deg);
+            }
+            55% {
+                clip: rect(2px, 9999px, 48px, 0);
+                transform: skew(0.05deg);
+            }
+            60% {
+                clip: rect(30px, 9999px, 16px, 0);
+                transform: skew(-0.05deg);
+            }
+            65% {
+                clip: rect(59px, 9999px, 50px, 0);
+                transform: skew(0.05deg);
+            }
+            70% {
+                clip: rect(41px, 9999px, 33px, 0);
+                transform: skew(0.05deg);
+            }
+            75% {
+                clip: rect(92px, 9999px, 53px, 0);
+                transform: skew(-0.05deg);
+            }
+            80% {
+                clip: rect(40px, 9999px, 67px, 0);
+                transform: skew(0.05deg);
+            }
+            85% {
+                clip: rect(80px, 9999px, 84px, 0);
+                transform: skew(-0.05deg);
+            }
+            90% {
+                clip: rect(32px, 9999px, 55px, 0);
+                transform: skew(-0.05deg);
+            }
+            95% {
+                clip: rect(29px, 9999px, 3px, 0);
+                transform: skew(-0.05deg);
+            }
+            100% {
+                clip: rect(91px, 9999px, 25px, 0);
+                transform: skew(-0.05deg);
+            }
+        }
+        
+        @keyframes glitch-skew {
+            0% {
+                transform: skew(0deg);
+            }
+            10% {
+                transform: skew(-1deg);
+            }
+            20% {
+                transform: skew(0.5deg);
+            }
+            30% {
+                transform: skew(-0.5deg);
+            }
+            40% {
+                transform: skew(1deg);
+            }
+            50% {
+                transform: skew(0deg);
+            }
+            60% {
+                transform: skew(-0.5deg);
+            }
+            70% {
+                transform: skew(0.2deg);
+            }
+            80% {
+                transform: skew(-1deg);
+            }
+            90% {
+                transform: skew(0.5deg);
+            }
+            100% {
+                transform: skew(0deg);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 20px #00f3ff;
+            }
+            to {
+                text-shadow: 0 0 30px #00f3ff, 0 0 40px #00f3ff;
+            }
+        }
+        
+        .floating-tech {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-tech:nth-child(2) {
+            animation-delay: -2s;
+        }
+        
+        .floating-tech:nth-child(3) {
+            animation-delay: -4s;
+        }
+        
+        .cyber-grid {
+            background-image: 
+                linear-gradient(rgba(0, 243, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-move 20s linear infinite;
+        }
+        
+        @keyframes grid-move {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+        
+        /* Estilos para el botón flotante de WhatsApp */
+        @keyframes pulse-slow {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse-slow 2s infinite;
+        }
+        
+        /* Navegación */
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(90deg, #00f3ff, #ff00ff);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Partículas de fondo */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body class="bg-cyberBlack text-white">
+    <!-- Navegación -->
+    <nav class="fixed top-0 w-full z-50 bg-cyberBlack bg-opacity-90 backdrop-blur-md border-b border-neonBlue border-opacity-30">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold font-orbitron">
+                    <span class="text-white">PUNTO</span><span class="text-neonBlue">TECH</span> <span class="text-neonPink">SOLUCIONES</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="nav-link text-white hover:text-neonBlue transition duration-300">Inicio</a>
+                    <a href="#servicios" class="nav-link text-white hover:text-neonBlue transition duration-300">Servicios</a>
+                    <a href="#nosotros" class="nav-link text-white hover:text-neonBlue transition duration-300">Nosotros</a>
+                    <a href="#testimonios" class="nav-link text-white hover:text-neonBlue transition duration-300">Testimonios</a>
+                    <a href="#contacto" class="nav-link text-white hover:text-neonBlue transition duration-300">Contacto</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-white hover:text-neonBlue transition duration-300">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center cyber-grid">
+        <div id="particles-js"></div>
+        <div class="hero-content container mx-auto px-4 text-center">
+            <div class="mb-8" data-aos="fade-up">
+                <h1 class="glitch font-orbitron mb-6" data-text="PUNTO TECH SOLUCIONES">
+                    PUNTO TECH SOLUCIONES
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Expertos en soluciones tecnológicas integrales. Reparación, mantenimiento y soporte técnico especializado para empresas y particulares en Bogotá.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#servicios" class="neon-button bg-neonBlue hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300">
+                        Ver Servicios
+                    </a>
+                    <a href="#contacto" class="border border-neonPink text-neonPink hover:bg-neonPink hover:text-white font-bold py-3 px-8 rounded-lg transition duration-300">
+                        Contactar Ahora
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Elementos flotantes tecnológicos -->
+            <div class="absolute top-20 left-10 floating-tech text-neonBlue text-4xl opacity-70">
+                <i class="fas fa-microchip"></i>
+            </div>
+            <div class="absolute top-40 right-20 floating-tech text-neonPink text-3xl opacity-70">
+                <i class="fas fa-server"></i>
+            </div>
+            <div class="absolute bottom-40 left-20 floating-tech text-neonPurple text-3xl opacity-70">
+                <i class="fas fa-network-wired"></i>
+            </div>
+            <div class="absolute bottom-20 right-10 floating-tech text-neonBlue text-4xl opacity-70">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="py-20 tech-gradient">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 neon-text">Nuestros Servicios</h2>
+                <div class="w-24 h-1 bg-neonBlue mx-auto mb-6"></div>
+                <p class="text-xl max-w-3xl mx-auto text-gray-300">Soluciones tecnológicas completas para todas tus necesidades</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Servicio 1 -->
+                <div class="tech-card rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-neonBlue text-5xl mb-4">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Reparación de Computadores</h3>
+                    <p class="text-gray-300 mb-4">Diagnóstico y reparación de hardware y software. Soluciones rápidas y efectivas para tu equipo.</p>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Diagnóstico completo</li>
+                        <li>• Reparación de hardware</li>
+                        <li>• Instalación de software</li>
+                        <li>• Optimización del sistema</li>
+                    </ul>
+                </div>
+                
+                <!-- Servicio 2 -->
+                <div class="tech-card rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-neonPink text-5xl mb-4">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Instalación de Redes</h3>
+                    <p class="text-gray-300 mb-4">Configuración e instalación de redes cableadas e inalámbricas para hogares y empresas.</p>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Redes WiFi empresariales</li>
+                        <li>• Cableado estructurado</li>
+                        <li>• Configuración de routers</li>
+                        <li>• Seguridad de red</li>
+                    </ul>
+                </div>
+                
+                <!-- Servicio 3 -->
+                <div class="tech-card rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-neonPurple text-5xl mb-4">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Mantenimiento Preventivo</h3>
+                    <p class="text-gray-300 mb-4">Mantenimiento regular para prevenir fallas y optimizar el rendimiento de tus equipos.</p>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Limpieza interna y externa</li>
+                        <li>• Actualización de drivers</li>
+                        <li>• Verificación de componentes</li>
+                        <li>• Reportes de estado</li>
+                    </ul>
+                </div>
+                
+                <!-- Servicio 4 -->
+                <div class="tech-card rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-neonBlue text-5xl mb-4">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Seguridad Informática</h3>
+                    <p class="text-gray-300 mb-4">Protección integral contra virus, malware y amenazas cibernéticas.</p>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Instalación de antivirus</li>
+                        <li>• Configuración de firewall</li>
+                        <li>• Eliminación de malware</li>
+                        <li>• Backup y recuperación</li>
+                    </ul>
+                </div>
+                
+                <!-- Servicio 5 -->
+                <div class="tech-card rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="500">
+                    <div class="text-neonPink text-5xl mb-4">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Soporte Técnico 24/7</h3>
+                    <p class="text-gray-300 mb-4">Asistencia técnica remota y presencial disponible las 24 horas del día.</p>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Soporte remoto</li>
+                        <li>• Asistencia presencial</li>
+                        <li>• Consultoría técnica</li>
+                        <li>• Disponibilidad 24/7</li>
+                    </ul>
+                </div>
+                
+                <!-- Servicio 6 -->
+                <div class="tech-card rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="600">
+                    <div class="text-neonPurple text-5xl mb-4">
+                        <i class="fas fa-hdd"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Recuperación de Datos</h3>
+                    <p class="text-gray-300 mb-4">Recuperación profesional de archivos perdidos o dañados en discos duros y dispositivos.</p>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Recuperación de discos duros</li>
+                        <li>• Restauración de archivos</li>
+                        <li>• Recuperación de USB/SD</li>
+                        <li>• Análisis forense</li>
+                    </ul>
+                </div>
+                
+                <!-- Servicio 7 -->
+                <div class="tech-card rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="700">
+                    <div class="text-neonBlue text-5xl mb-4">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Configuración de Servidores</h3>
+                    <p class="text-gray-300 mb-4">Instalación y configuración de servidores para empresas y organizaciones.</p>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Servidores Windows/Linux</li>
+                        <li>• Configuración de dominio</li>
+                        <li>• Servicios de red</li>
+                        <li>• Monitoreo y mantenimiento</li>
+                    </ul>
+                </div>
+                
+                <!-- Servicio 8 -->
+                <div class="tech-card rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="800">
+                    <div class="text-neonPink text-5xl mb-4">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Sistemas de Videovigilancia</h3>
+                    <p class="text-gray-300 mb-4">Instalación y configuración de sistemas de seguridad y videovigilancia.</p>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Cámaras IP y analógicas</li>
+                        <li>• Sistemas de grabación</li>
+                        <li>• Monitoreo remoto</li>
+                        <li>• Configuración de alertas</li>
+                    </ul>
+                </div>
+                
+                <!-- Servicio 9 -->
+                <div class="tech-card rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="900">
+                    <div class="text-neonPurple text-5xl mb-4">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Reparación de Dispositivos Móviles</h3>
+                    <p class="text-gray-300 mb-4">Reparación especializada de smartphones, tablets y dispositivos móviles.</p>
+                    <ul class="text-sm text-gray-400 space-y-1">
+                        <li>• Cambio de pantallas</li>
+                        <li>• Reparación de baterías</li>
+                        <li>• Solución de software</li>
+                        <li>• Liberación de equipos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Por Qué Confiar en Nosotros -->
+    <section id="nosotros" class="py-20 bg-darkTech">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 neon-text">¿Por Qué Confiar en Nosotros?</h2>
+                <div class="w-24 h-1 bg-neonPink mx-auto mb-6"></div>
+                <p class="text-xl max-w-3xl mx-auto text-gray-300">Años de experiencia nos respaldan</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tech-card rounded-lg p-6">
+                        <div class="text-neonBlue text-4xl mb-4">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">Equipo Especializado</h3>
+                        <p class="text-gray-300">Técnicos certificados con amplia experiencia en el sector tecnológico.</p>
+                    </div>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tech-card rounded-lg p-6">
+                        <div class="text-neonPink text-4xl mb-4">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">Experiencia Certificada</h3>
+                        <p class="text-gray-300">Más de 10 años brindando soluciones tecnológicas confiables.</p>
+                    </div>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="tech-card rounded-lg p-6">
+                        <div class="text-neonPurple text-4xl mb-4">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">Precios Competitivos</h3>
+                        <p class="text-gray-300">Tarifas justas y transparentes sin costos ocultos.</p>
+                    </div>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="tech-card rounded-lg p-6">
+                        <div class="text-neonBlue text-4xl mb-4">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">Respuesta Rápida</h3>
+                        <p class="text-gray-300">Atención inmediata y soluciones en el menor tiempo posible.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Testimonios -->
+    <section id="testimonios" class="py-20 tech-gradient">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 neon-text">Lo Que Dicen Nuestros Clientes</h2>
+                <div class="w-24 h-1 bg-neonPurple mx-auto mb-6"></div>
+                <p class="text-xl max-w-3xl mx-auto text-gray-300">Testimonios reales de clientes satisfechos</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="tech-card rounded-lg p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex justify-center mb-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-center mb-4">"Excelente servicio técnico. Solucionaron el problema de mi laptop en tiempo récord y a un precio muy justo. Totalmente recomendados."</p>
+                    <h4 class="text-white font-semibold text-center">María González</h4>
+                    <p class="text-gray-400 text-center text-sm">Diseñadora Gráfica</p>
+                </div>
+                
+                <div class="tech-card rounded-lg p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-center mb-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-center mb-4">"Profesionales de primera. Instalaron toda la red de mi oficina y configuraron el sistema de seguridad. Trabajo impecable."</p>
+                    <h4 class="text-white font-semibold text-center">Carlos Rodríguez</h4>
+                    <p class="text-gray-400 text-center text-sm">Gerente de Ventas</p>
+                </div>
+                
+                <div class="tech-card rounded-lg p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex justify-center mb-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-gray-300 text-center mb-4">"Implementaron un sistema de seguridad para mi pequeña empresa que ha funcionado perfectamente. Muy profesionales y atentos."</p>
+                    <h4 class="text-white font-semibold text-center">Andrés Martínez</h4>
+                    <p class="text-gray-400 text-center text-sm">Propietario de Negocio</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="py-20 tech-gradient">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 neon-text">Contáctanos</h2>
+                <div class="w-24 h-1 bg-neonBlue mx-auto mb-6"></div>
+                <p class="text-xl max-w-3xl mx-auto text-gray-300">¿Necesitas ayuda con tus equipos? Estamos a un mensaje de distancia</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Formulario de Contacto -->
+                <div class="tech-card rounded-lg p-8" data-aos="fade-right">
+                    <h3 class="text-2xl font-semibold mb-6 text-white">Envíanos un Mensaje</h3>
+                    <form>
+                        <div class="mb-6">
+                            <input type="text" placeholder="Nombre Completo" class="w-full px-4 py-3 rounded-lg bg-darkTech border border-neonBlue border-opacity-30 text-white focus:border-neonBlue focus:outline-none transition duration-300">
+                        </div>
+                        <div class="mb-6">
+                            <input type="email" placeholder="Correo Electrónico" class="w-full px-4 py-3 rounded-lg bg-darkTech border border-neonBlue border-opacity-30 text-white focus:border-neonBlue focus:outline-none transition duration-300">
+                        </div>
+                        <div class="mb-6">
+                            <input type="tel" placeholder="Teléfono" class="w-full px-4 py-3 rounded-lg bg-darkTech border border-neonBlue border-opacity-30 text-white focus:border-neonBlue focus:outline-none transition duration-300">
+                        </div>
+                        <div class="mb-6">
+                            <textarea placeholder="Describe tu problema técnico" rows="4" class="w-full px-4 py-3 rounded-lg bg-darkTech border border-neonBlue border-opacity-30 text-white focus:border-neonBlue focus:outline-none transition duration-300"></textarea>
+                        </div>
+                        <button type="submit" class="neon-button bg-neonBlue hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 w-full">Enviar Mensaje</button>
+                    </form>
+                </div>
+                
+                <!-- Información de Contacto -->
+                <div data-aos="fade-left">
+                    <div class="tech-card rounded-lg p-8 mb-8">
+                        <h3 class="text-2xl font-semibold mb-6 text-white">Información de Contacto</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="text-neonBlue text-2xl mr-4">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-300">+57 300 123 4567</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="text-neonPink text-2xl mr-4">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-300">contacto@techservicio.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="text-neonPurple text-2xl mr-4">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-300">Bogotá, Colombia</p>
+                                    <p class="text-gray-400 text-sm">Servicio a domicilio en toda la ciudad</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-card rounded-lg p-8">
+                        <h3 class="text-2xl font-semibold mb-6 text-white">Horarios de Atención</h3>
+                        <div class="space-y-2 text-gray-300">
+                            <p><span class="text-neonBlue">Lunes - Viernes:</span> 8:00 AM - 8:00 PM</p>
+                            <p><span class="text-neonPink">Sábados:</span> 9:00 AM - 6:00 PM</p>
+                            <p><span class="text-neonPurple">Domingos:</span> 10:00 AM - 4:00 PM</p>
+                            <p class="text-yellow-400 font-semibold mt-4">¡Emergencias 24/7!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/573001234567?text=Hola%20Punto%20Tech%20Soluciones,%20necesito%20información%20sobre%20sus%20servicios" 
+       class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg transition-all duration-300 hover:scale-110 animate-pulse-slow" 
+       target="_blank" 
+       rel="noopener noreferrer">
+        <i class="fab fa-whatsapp text-3xl"></i>
+        <span class="absolute -top-2 -right-2 flex h-5 w-5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-5 w-5 bg-green-500"></span>
+        </span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-cyberBlack border-t border-neonBlue border-opacity-30 py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="text-2xl font-bold neon-text mb-4 font-orbitron">
+                        <span class="text-white">PUNTO</span><span class="text-neonBlue">TECH</span> <span class="text-neonPink">SOLUCIONES</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Expertos en soluciones tecnológicas integrales para empresas y particulares en Bogotá.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-neonBlue transition duration-300">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neonPink transition duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neonPurple transition duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-neonBlue transition duration-300">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Servicios Principales</h4>
+                    <ul class="text-gray-400 space-y-2">
+                        <li><a href="#" class="hover:text-neonBlue transition duration-300">Reparación de Computadores</a></li>
+                        <li><a href="#" class="hover:text-neonBlue transition duration-300">Instalación de Redes</a></li>
+                        <li><a href="#" class="hover:text-neonBlue transition duration-300">Soporte Técnico 24/7</a></li>
+                        <li><a href="#" class="hover:text-neonBlue transition duration-300">Seguridad Informática</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contacto Rápido</h4>
+                    <div class="text-gray-400 space-y-2">
+                        <p><i class="fas fa-phone text-neonBlue mr-2"></i> +57 300 123 4567</p>
+                        <p><i class="fas fa-envelope text-neonPink mr-2"></i> contacto@techservicio.com</p>
+                        <p><i class="fas fa-map-marker-alt text-neonPurple mr-2"></i> Bogotá, Colombia</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2024 Punto Tech Soluciones. Todos los derechos reservados. | 
+                    <a href="#" class="hover:text-neonBlue transition duration-300">Política de Privacidad</a> | 
+                    <a href="#" class="hover:text-neonBlue transition duration-300">Términos de Servicio</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicializar AOS (Animate On Scroll)
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Configuración de Particles.js
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": ["#00f3ff", "#ff00ff", "#9d00ff"]
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 2,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#00f3ff",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 1,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+            
+            // Smooth scrolling para los enlaces de navegación
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
