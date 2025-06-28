@@ -142,10 +142,10 @@
         .glitch {
             position: relative;
             color: #fff;
-            font-size: 4rem;
             font-weight: bold;
             text-transform: uppercase;
             animation: glitch-skew 1s infinite linear alternate-reverse;
+            line-height: 1.1;
         }
         
         .glitch::before,
@@ -443,6 +443,27 @@
             animation: pulse-slow 2s infinite;
         }
         
+        /* Estilos para los detalles de servicios */
+        .service-details {
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+            max-height: 0;
+        }
+        
+        .service-card.expanded {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.3);
+        }
+        
+        .toggle-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-btn:hover {
+            background: linear-gradient(135deg, #00f3ff, #ff00ff);
+            transform: translateY(-2px);
+        }
+        
         /* Navegación */
         .nav-link {
             position: relative;
@@ -479,17 +500,71 @@
             position: relative;
             z-index: 2;
         }
+        
+        /* Mejoras adicionales de responsividad */
+        @media (max-width: 640px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Asegurar que las imágenes no se desborden */
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+            
+            /* Mejorar el espaciado en móviles */
+            .space-y-8 > * + * {
+                margin-top: 1.5rem;
+            }
+            
+            /* Ajustar botones en móviles */
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            /* Evitar desbordamiento horizontal */
+            * {
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+            
+            /* Mejorar legibilidad en móviles */
+            .text-xs {
+                font-size: 0.75rem;
+            }
+            
+            .text-sm {
+                font-size: 0.875rem;
+            }
+        }
+        
+        /* Tablet adjustments */
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .container {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+        
+        /* Asegurar que el contenido no se desborde */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
     </style>
 </head>
 <body class="bg-cyberBlack text-white">
     <!-- Navegación -->
     <nav class="fixed top-0 w-full z-50 bg-cyberBlack bg-opacity-90 backdrop-blur-md border-b border-neonBlue border-opacity-30">
-        <div class="container mx-auto px-4 py-4">
+        <div class="container mx-auto px-4 py-3 md:py-4">
             <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold font-orbitron">
-                    <span class="text-white">PUNTO</span><span class="text-neonBlue">TECH</span> <span class="text-neonPink">SOLUCIONES</span>
+                <div class="text-lg sm:text-xl md:text-2xl font-bold font-orbitron">
+                    <span class="text-white">PUNTO</span><span class="text-neonBlue">TECH</span> <span class="text-neonPink hidden sm:inline">SOLUCIONES</span><span class="text-neonPink sm:hidden">SOL</span>
                 </div>
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex space-x-6 lg:space-x-8">
                     <a href="#inicio" class="nav-link text-white hover:text-neonBlue transition duration-300">Inicio</a>
                     <a href="#servicios" class="nav-link text-white hover:text-neonBlue transition duration-300">Servicios</a>
                     <a href="#nosotros" class="nav-link text-white hover:text-neonBlue transition duration-300">Nosotros</a>
@@ -497,246 +572,401 @@
                     <a href="#contacto" class="nav-link text-white hover:text-neonBlue transition duration-300">Contacto</a>
                 </div>
                 <div class="md:hidden">
-                    <button class="text-white hover:text-neonBlue transition duration-300">
-                        <i class="fas fa-bars text-2xl"></i>
+                    <button id="mobile-menu-btn" class="text-white hover:text-neonBlue transition duration-300 p-2">
+                        <i class="fas fa-bars text-xl"></i>
                     </button>
+                </div>
+            </div>
+            
+            <!-- Menú móvil -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-neonBlue border-opacity-30">
+                <div class="flex flex-col space-y-3 pt-4">
+                    <a href="#inicio" class="nav-link text-white hover:text-neonBlue transition duration-300 py-2">Inicio</a>
+                    <a href="#servicios" class="nav-link text-white hover:text-neonBlue transition duration-300 py-2">Servicios</a>
+                    <a href="#nosotros" class="nav-link text-white hover:text-neonBlue transition duration-300 py-2">Nosotros</a>
+                    <a href="#testimonios" class="nav-link text-white hover:text-neonBlue transition duration-300 py-2">Testimonios</a>
+                    <a href="#contacto" class="nav-link text-white hover:text-neonBlue transition duration-300 py-2">Contacto</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="inicio" class="relative min-h-screen flex items-center justify-center cyber-grid">
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center cyber-grid pt-16 md:pt-0">
         <div id="particles-js"></div>
         <div class="hero-content container mx-auto px-4 text-center">
             <div class="mb-8" data-aos="fade-up">
-                <h1 class="glitch font-orbitron mb-6" data-text="PUNTO TECH SOLUCIONES">
+                <h1 class="glitch font-orbitron mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl" data-text="PUNTO TECH SOLUCIONES">
                     PUNTO TECH SOLUCIONES
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto px-2">
                     Expertos en soluciones tecnológicas integrales. Reparación, mantenimiento y soporte técnico especializado para empresas y particulares en Bogotá.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#servicios" class="neon-button bg-neonBlue hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center px-4">
+                    <a href="#servicios" class="neon-button bg-neonBlue hover:bg-blue-600 text-white font-bold py-3 px-6 sm:px-8 rounded-lg transition duration-300 text-sm sm:text-base">
                         Ver Servicios
                     </a>
-                    <a href="#contacto" class="border border-neonPink text-neonPink hover:bg-neonPink hover:text-white font-bold py-3 px-8 rounded-lg transition duration-300">
+                    <a href="#contacto" class="border border-neonPink text-neonPink hover:bg-neonPink hover:text-white font-bold py-3 px-6 sm:px-8 rounded-lg transition duration-300 text-sm sm:text-base">
                         Contactar Ahora
                     </a>
                 </div>
             </div>
             
             <!-- Elementos flotantes tecnológicos -->
-            <div class="absolute top-20 left-10 floating-tech text-neonBlue text-4xl opacity-70">
+            <div class="hidden sm:block absolute top-20 left-4 md:left-10 floating-tech text-neonBlue text-2xl md:text-3xl lg:text-4xl opacity-70">
                 <i class="fas fa-microchip"></i>
             </div>
-            <div class="absolute top-40 right-20 floating-tech text-neonPink text-3xl opacity-70">
+            <div class="hidden sm:block absolute top-32 md:top-40 right-4 md:right-20 floating-tech text-neonPink text-xl md:text-2xl lg:text-3xl opacity-70">
                 <i class="fas fa-server"></i>
             </div>
-            <div class="absolute bottom-40 left-20 floating-tech text-neonPurple text-3xl opacity-70">
+            <div class="hidden sm:block absolute bottom-32 md:bottom-40 left-4 md:left-20 floating-tech text-neonPurple text-xl md:text-2xl lg:text-3xl opacity-70">
                 <i class="fas fa-network-wired"></i>
             </div>
-            <div class="absolute bottom-20 right-10 floating-tech text-neonBlue text-4xl opacity-70">
+            <div class="hidden sm:block absolute bottom-20 right-4 md:right-10 floating-tech text-neonBlue text-2xl md:text-3xl lg:text-4xl opacity-70">
                 <i class="fas fa-laptop-code"></i>
             </div>
         </div>
     </section>
 
     <!-- Sección de Servicios -->
-    <section id="servicios" class="py-20 tech-gradient">
+    <section id="servicios" class="py-12 md:py-20 tech-gradient">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6 neon-text">Nuestros Servicios</h2>
-                <div class="w-24 h-1 bg-neonBlue mx-auto mb-6"></div>
-                <p class="text-xl max-w-3xl mx-auto text-gray-300">Soluciones tecnológicas completas para todas tus necesidades</p>
+            <div class="text-center mb-12 md:mb-16" data-aos="fade-up">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 neon-text">Nuestros Servicios</h2>
+                <div class="w-16 sm:w-20 md:w-24 h-1 bg-neonBlue mx-auto mb-4 md:mb-6"></div>
+                <p class="text-base sm:text-lg md:text-xl max-w-4xl mx-auto text-gray-300 px-2">Soluciones tecnológicas completas para todas tus necesidades</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Servicio 1 -->
-                <div class="tech-card rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-neonBlue text-5xl mb-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Servicio 1: Mantenimiento y Reparación -->
+                <div class="tech-card rounded-lg p-4 sm:p-6 text-center cursor-pointer transition-all duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="100" onclick="toggleServiceDetails(this)">
+                    <div class="text-neonBlue text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
                         <i class="fas fa-laptop"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-white">Reparación de Computadores</h3>
-                    <p class="text-gray-300 mb-4">Diagnóstico y reparación de hardware y software. Soluciones rápidas y efectivas para tu equipo.</p>
-                    <ul class="text-sm text-gray-400 space-y-1">
-                        <li>• Diagnóstico completo</li>
-                        <li>• Reparación de hardware</li>
-                        <li>• Instalación de software</li>
-                        <li>• Optimización del sistema</li>
-                    </ul>
-                </div>
-                
-                <!-- Servicio 2 -->
-                <div class="tech-card rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-neonPink text-5xl mb-4">
-                        <i class="fas fa-network-wired"></i>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-white">Mantenimiento y Reparación de Equipos</h3>
+                    <p class="text-sm sm:text-base text-gray-300 mb-3 sm:mb-4">Servicio integral de mantenimiento preventivo y correctivo para PC, portátiles y equipos tecnológicos.</p>
+                    
+                    <!-- Botón para expandir -->
+                    <div class="flex items-center justify-center mb-3 sm:mb-4">
+                        <button class="toggle-btn text-neonBlue hover:text-white transition-colors duration-300 flex items-center gap-2 py-2 px-4 rounded-lg border border-neonBlue border-opacity-30">
+                            <span class="text-xs sm:text-sm">Ver detalles</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-white">Instalación de Redes</h3>
-                    <p class="text-gray-300 mb-4">Configuración e instalación de redes cableadas e inalámbricas para hogares y empresas.</p>
-                    <ul class="text-sm text-gray-400 space-y-1">
-                        <li>• Redes WiFi empresariales</li>
-                        <li>• Cableado estructurado</li>
-                        <li>• Configuración de routers</li>
-                        <li>• Seguridad de red</li>
-                    </ul>
-                </div>
-                
-                <!-- Servicio 3 -->
-                <div class="tech-card rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-neonPurple text-5xl mb-4">
-                        <i class="fas fa-tools"></i>
+                    
+                    <!-- Contenido expandible -->
+                    <div class="service-details hidden mt-4 pt-4 border-t border-gray-600">
+                        <ul class="text-sm text-gray-400 space-y-1 text-left">
+                            <li>• Limpieza interna profunda y externa</li>
+                            <li>• Diagnóstico completo de hardware</li>
+                            <li>• Reparación y cambio de componentes</li>
+                            <li>• Actualización de RAM y discos duros</li>
+                            <li>• Repotenciación de equipos</li>
+                            <li>• Cambio de teclados, pantallas y baterías</li>
+                            <li>• Optimización del sistema operativo</li>
+                            <li>• Actualización de drivers y BIOS</li>
+                        </ul>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-white">Mantenimiento Preventivo</h3>
-                    <p class="text-gray-300 mb-4">Mantenimiento regular para prevenir fallas y optimizar el rendimiento de tus equipos.</p>
-                    <ul class="text-sm text-gray-400 space-y-1">
-                        <li>• Limpieza interna y externa</li>
-                        <li>• Actualización de drivers</li>
-                        <li>• Verificación de componentes</li>
-                        <li>• Reportes de estado</li>
-                    </ul>
                 </div>
                 
-                <!-- Servicio 4 -->
-                <div class="tech-card rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="400">
-                    <div class="text-neonBlue text-5xl mb-4">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-4 text-white">Seguridad Informática</h3>
-                    <p class="text-gray-300 mb-4">Protección integral contra virus, malware y amenazas cibernéticas.</p>
-                    <ul class="text-sm text-gray-400 space-y-1">
-                        <li>• Instalación de antivirus</li>
-                        <li>• Configuración de firewall</li>
-                        <li>• Eliminación de malware</li>
-                        <li>• Backup y recuperación</li>
-                    </ul>
-                </div>
-                
-                <!-- Servicio 5 -->
-                <div class="tech-card rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="500">
+                <!-- Servicio 2: Soporte Técnico -->
+                <div class="tech-card rounded-lg p-6 text-center cursor-pointer transition-all duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="200" onclick="toggleServiceDetails(this)">
                     <div class="text-neonPink text-5xl mb-4">
                         <i class="fas fa-headset"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-white">Soporte Técnico 24/7</h3>
-                    <p class="text-gray-300 mb-4">Asistencia técnica remota y presencial disponible las 24 horas del día.</p>
-                    <ul class="text-sm text-gray-400 space-y-1">
-                        <li>• Soporte remoto</li>
-                        <li>• Asistencia presencial</li>
-                        <li>• Consultoría técnica</li>
-                        <li>• Disponibilidad 24/7</li>
-                    </ul>
-                </div>
-                
-                <!-- Servicio 6 -->
-                <div class="tech-card rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="600">
-                    <div class="text-neonPurple text-5xl mb-4">
-                        <i class="fas fa-hdd"></i>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Soporte Técnico Especializado 24/7</h3>
+                    <p class="text-gray-300 mb-4">Asistencia técnica profesional remota y presencial con disponibilidad completa para resolver cualquier inconveniente.</p>
+                    
+                    <!-- Botón para expandir -->
+                    <div class="flex items-center justify-center mb-4">
+                        <button class="text-neonPink hover:text-white transition-colors duration-300 flex items-center gap-2">
+                            <span class="text-sm">Ver detalles</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-white">Recuperación de Datos</h3>
-                    <p class="text-gray-300 mb-4">Recuperación profesional de archivos perdidos o dañados en discos duros y dispositivos.</p>
-                    <ul class="text-sm text-gray-400 space-y-1">
-                        <li>• Recuperación de discos duros</li>
-                        <li>• Restauración de archivos</li>
-                        <li>• Recuperación de USB/SD</li>
-                        <li>• Análisis forense</li>
-                    </ul>
+                    
+                    <!-- Contenido expandible -->
+                    <div class="service-details hidden mt-4 pt-4 border-t border-gray-600">
+                        <ul class="text-sm text-gray-400 space-y-1 text-left">
+                            <li>• Soporte remoto vía TeamViewer/AnyDesk</li>
+                            <li>• Asistencia presencial a domicilio</li>
+                            <li>• Instalación y configuración de programas</li>
+                            <li>• Resolución de problemas de software</li>
+                            <li>• Configuración de correos y cuentas</li>
+                            <li>• Capacitación en uso de herramientas</li>
+                            <li>• Consultoría técnica especializada</li>
+                            <li>• Disponibilidad 24/7 para emergencias</li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <!-- Servicio 7 -->
-                <div class="tech-card rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="700">
+                <!-- Servicio 3: Seguridad Informática -->
+                <div class="tech-card rounded-lg p-6 text-center cursor-pointer transition-all duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="300" onclick="toggleServiceDetails(this)">
+                    <div class="text-neonPurple text-5xl mb-4">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Seguridad Informática Integral</h3>
+                    <p class="text-gray-300 mb-4">Protección completa contra amenazas cibernéticas con soluciones de seguridad avanzadas y monitoreo continuo.</p>
+                    
+                    <!-- Botón para expandir -->
+                    <div class="flex items-center justify-center mb-4">
+                        <button class="text-neonPurple hover:text-white transition-colors duration-300 flex items-center gap-2">
+                            <span class="text-sm">Ver detalles</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Contenido expandible -->
+                    <div class="service-details hidden mt-4 pt-4 border-t border-gray-600">
+                        <ul class="text-sm text-gray-400 space-y-1 text-left">
+                            <li>• Instalación de antivirus empresarial</li>
+                            <li>• Configuración de firewall avanzado</li>
+                            <li>• Eliminación de malware y ransomware</li>
+                            <li>• Auditorías de seguridad</li>
+                            <li>• Implementación de políticas de seguridad</li>
+                            <li>• Backup automático y recuperación</li>
+                            <li>• Monitoreo de amenazas en tiempo real</li>
+                            <li>• Capacitación en ciberseguridad</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Servicio 4: Infraestructura y Redes -->
+                <div class="tech-card rounded-lg p-6 text-center cursor-pointer transition-all duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="400" onclick="toggleServiceDetails(this)">
                     <div class="text-neonBlue text-5xl mb-4">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4 text-white">Infraestructura de Redes y Conectividad</h3>
+                    <p class="text-gray-300 mb-4">Diseño, implementación y administración de redes empresariales con tecnología de vanguardia.</p>
+                    
+                    <!-- Botón para expandir -->
+                    <div class="flex items-center justify-center mb-4">
+                        <button class="text-neonBlue hover:text-white transition-colors duration-300 flex items-center gap-2">
+                            <span class="text-sm">Ver detalles</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Contenido expandible -->
+                    <div class="service-details hidden mt-4 pt-4 border-t border-gray-600">
+                        <ul class="text-sm text-gray-400 space-y-1 text-left">
+                            <li>• Diseño de redes empresariales</li>
+                            <li>• Instalación de cableado estructurado</li>
+                            <li>• Configuración de redes WiFi corporativas</li>
+                            <li>• Implementación de VPN empresarial</li>
+                            <li>• Configuración de switches y routers</li>
+                            <li>• Monitoreo de red y ancho de banda</li>
+                            <li>• Segmentación de redes por departamentos</li>
+                            <li>• Optimización de velocidad y rendimiento</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Servicio 5: Servidores y Cloud -->
+                <div class="tech-card rounded-lg p-4 sm:p-6 text-center cursor-pointer transition-all duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="500" onclick="toggleServiceDetails(this)">
+                    <div class="text-neonPink text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
                         <i class="fas fa-server"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-white">Configuración de Servidores</h3>
-                    <p class="text-gray-300 mb-4">Instalación y configuración de servidores para empresas y organizaciones.</p>
-                    <ul class="text-sm text-gray-400 space-y-1">
-                        <li>• Servidores Windows/Linux</li>
-                        <li>• Configuración de dominio</li>
-                        <li>• Servicios de red</li>
-                        <li>• Monitoreo y mantenimiento</li>
-                    </ul>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-white">Administración de Servidores y Cloud</h3>
+                    <p class="text-sm sm:text-base text-gray-300 mb-3 sm:mb-4">Gestión completa de infraestructura de servidores, servicios cloud y administración de dominios y hosting.</p>
+                    
+                    <!-- Botón para expandir -->
+                    <div class="flex items-center justify-center mb-3 sm:mb-4">
+                        <button class="toggle-btn text-neonPink hover:text-white transition-colors duration-300 flex items-center gap-2 py-2 px-4 rounded-lg border border-neonPink border-opacity-30">
+                            <span class="text-xs sm:text-sm">Ver detalles</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Contenido expandible -->
+                    <div class="service-details hidden mt-4 pt-4 border-t border-gray-600">
+                        <ul class="text-sm text-gray-400 space-y-1 text-left">
+                            <li>• Servidores Windows Server y Linux</li>
+                            <li>• Administración AWS, Google Cloud, Azure</li>
+                            <li>• Servidores on-premise (en piso)</li>
+                            <li>• Gestión de dominios y hosting</li>
+                            <li>• Configuración de VPS y hosting compartido</li>
+                            <li>• Administración de bases de datos</li>
+                            <li>• Configuración de Active Directory</li>
+                            <li>• Monitoreo y mantenimiento 24/7</li>
+                        </ul>
+                    </div>
                 </div>
                 
-                <!-- Servicio 8 -->
-                <div class="tech-card rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="800">
-                    <div class="text-neonPink text-5xl mb-4">
+                <!-- Servicio 6: Desarrollo de Software -->
+                <div class="tech-card rounded-lg p-4 sm:p-6 text-center cursor-pointer transition-all duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="600" onclick="toggleServiceDetails(this)">
+                    <div class="text-neonPurple text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-white">Desarrollo de Software a la Medida</h3>
+                    <p class="text-sm sm:text-base text-gray-300 mb-3 sm:mb-4">Creación de soluciones tecnológicas personalizadas desde el análisis hasta la implementación y mantenimiento.</p>
+                    
+                    <!-- Botón para expandir -->
+                    <div class="flex items-center justify-center mb-3 sm:mb-4">
+                        <button class="toggle-btn text-neonPurple hover:text-white transition-colors duration-300 flex items-center gap-2 py-2 px-4 rounded-lg border border-neonPurple border-opacity-30">
+                            <span class="text-xs sm:text-sm">Ver detalles</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Contenido expandible -->
+                    <div class="service-details hidden mt-4 pt-4 border-t border-gray-600">
+                        <ul class="text-sm text-gray-400 space-y-1 text-left">
+                            <li>• Levantamiento de requerimientos</li>
+                            <li>• Diseño y creación de bases de datos</li>
+                            <li>• Desarrollo de aplicaciones web</li>
+                            <li>• Desarrollo de aplicaciones móviles</li>
+                            <li>• Creación de APIs y microservicios</li>
+                            <li>• Integración de sistemas existentes</li>
+                            <li>• Testing y control de calidad</li>
+                            <li>• Documentación técnica completa</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Servicio 7: DevOps y Automatización -->
+                <div class="tech-card rounded-lg p-4 sm:p-6 text-center cursor-pointer transition-all duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="700" onclick="toggleServiceDetails(this)">
+                    <div class="text-neonBlue text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-white">DevOps y Automatización</h3>
+                    <p class="text-sm sm:text-base text-gray-300 mb-3 sm:mb-4">Implementación de metodologías DevOps para optimizar el ciclo de desarrollo y despliegue de aplicaciones.</p>
+                    
+                    <!-- Botón para expandir -->
+                    <div class="flex items-center justify-center mb-3 sm:mb-4">
+                        <button class="toggle-btn text-neonBlue hover:text-white transition-colors duration-300 flex items-center gap-2 py-2 px-4 rounded-lg border border-neonBlue border-opacity-30">
+                            <span class="text-xs sm:text-sm">Ver detalles</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Contenido expandible -->
+                    <div class="service-details hidden mt-4 pt-4 border-t border-gray-600">
+                        <ul class="text-sm text-gray-400 space-y-1 text-left">
+                            <li>• Configuración de CI/CD pipelines</li>
+                            <li>• Automatización de despliegues</li>
+                            <li>• Containerización con Docker</li>
+                            <li>• Orquestación con Kubernetes</li>
+                            <li>• Monitoreo de aplicaciones</li>
+                            <li>• Gestión de logs y métricas</li>
+                            <li>• Infraestructura como código (IaC)</li>
+                            <li>• Acompañamiento en transformación digital</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Servicio 8: Recuperación de Datos -->
+                <div class="tech-card rounded-lg p-4 sm:p-6 text-center cursor-pointer transition-all duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="800" onclick="toggleServiceDetails(this)">
+                    <div class="text-neonPink text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
+                        <i class="fas fa-hdd"></i>
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-white">Recuperación de Datos Especializada</h3>
+                    <p class="text-sm sm:text-base text-gray-300 mb-3 sm:mb-4">Recuperación profesional de información crítica con técnicas avanzadas y herramientas especializadas.</p>
+                    
+                    <!-- Botón para expandir -->
+                    <div class="flex items-center justify-center mb-3 sm:mb-4">
+                        <button class="toggle-btn text-neonPink hover:text-white transition-colors duration-300 flex items-center gap-2 py-2 px-4 rounded-lg border border-neonPink border-opacity-30">
+                            <span class="text-xs sm:text-sm">Ver detalles</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Contenido expandible -->
+                    <div class="service-details hidden mt-4 pt-4 border-t border-gray-600">
+                        <ul class="text-sm text-gray-400 space-y-1 text-left">
+                            <li>• Recuperación de discos duros dañados</li>
+                            <li>• Restauración de archivos eliminados</li>
+                            <li>• Recuperación de dispositivos USB/SD</li>
+                            <li>• Análisis forense de datos</li>
+                            <li>• Recuperación de bases de datos</li>
+                            <li>• Restauración de sistemas RAID</li>
+                            <li>• Recuperación de correos electrónicos</li>
+                            <li>• Evaluación gratuita de viabilidad</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Servicio 9: Sistemas de Videovigilancia -->
+                <div class="tech-card rounded-lg p-4 sm:p-6 text-center cursor-pointer transition-all duration-300 hover:scale-105" data-aos="fade-up" data-aos-delay="900" onclick="toggleServiceDetails(this)">
+                    <div class="text-neonPurple text-3xl sm:text-4xl md:text-5xl mb-3 sm:mb-4">
                         <i class="fas fa-camera"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-white">Sistemas de Videovigilancia</h3>
-                    <p class="text-gray-300 mb-4">Instalación y configuración de sistemas de seguridad y videovigilancia.</p>
-                    <ul class="text-sm text-gray-400 space-y-1">
-                        <li>• Cámaras IP y analógicas</li>
-                        <li>• Sistemas de grabación</li>
-                        <li>• Monitoreo remoto</li>
-                        <li>• Configuración de alertas</li>
-                    </ul>
-                </div>
-                
-                <!-- Servicio 9 -->
-                <div class="tech-card rounded-lg p-6 text-center" data-aos="fade-up" data-aos-delay="900">
-                    <div class="text-neonPurple text-5xl mb-4">
-                        <i class="fas fa-mobile-alt"></i>
+                    <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-white">Sistemas de Videovigilancia Inteligente</h3>
+                    <p class="text-sm sm:text-base text-gray-300 mb-3 sm:mb-4">Implementación de sistemas de seguridad avanzados con tecnología IP y análisis inteligente de video.</p>
+                    
+                    <!-- Botón para expandir -->
+                    <div class="flex items-center justify-center mb-3 sm:mb-4">
+                        <button class="toggle-btn text-neonPurple hover:text-white transition-colors duration-300 flex items-center gap-2 py-2 px-4 rounded-lg border border-neonPurple border-opacity-30">
+                            <span class="text-xs sm:text-sm">Ver detalles</span>
+                            <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                        </button>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-white">Reparación de Dispositivos Móviles</h3>
-                    <p class="text-gray-300 mb-4">Reparación especializada de smartphones, tablets y dispositivos móviles.</p>
-                    <ul class="text-sm text-gray-400 space-y-1">
-                        <li>• Cambio de pantallas</li>
-                        <li>• Reparación de baterías</li>
-                        <li>• Solución de software</li>
-                        <li>• Liberación de equipos</li>
-                    </ul>
+                    
+                    <!-- Contenido expandible -->
+                    <div class="service-details hidden mt-4 pt-4 border-t border-gray-600">
+                        <ul class="text-sm text-gray-400 space-y-1 text-left">
+                            <li>• Cámaras IP de alta resolución</li>
+                            <li>• Sistemas de grabación NVR/DVR</li>
+                            <li>• Monitoreo remoto vía móvil/web</li>
+                            <li>• Detección de movimiento inteligente</li>
+                            <li>• Configuración de alertas automáticas</li>
+                            <li>• Integración con sistemas de alarma</li>
+                            <li>• Análisis de video con IA</li>
+                            <li>• Mantenimiento preventivo del sistema</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Sección Por Qué Confiar en Nosotros -->
-    <section id="nosotros" class="py-20 bg-darkTech">
+    <section id="nosotros" class="py-12 sm:py-16 md:py-20 bg-darkTech">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6 neon-text">¿Por Qué Confiar en Nosotros?</h2>
-                <div class="w-24 h-1 bg-neonPink mx-auto mb-6"></div>
-                <p class="text-xl max-w-3xl mx-auto text-gray-300">Años de experiencia nos respaldan</p>
+            <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 neon-text">¿Por Qué Confiar en Nosotros?</h2>
+                <div class="w-16 sm:w-20 md:w-24 h-1 bg-neonPink mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-lg sm:text-xl max-w-3xl mx-auto text-gray-300 px-4">Años de experiencia nos respaldan</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                 <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="tech-card rounded-lg p-6">
-                        <div class="text-neonBlue text-4xl mb-4">
+                    <div class="tech-card rounded-lg p-4 sm:p-6">
+                        <div class="text-neonBlue text-3xl sm:text-4xl mb-3 sm:mb-4">
                             <i class="fas fa-users"></i>
                         </div>
-                        <h3 class="text-xl font-semibold mb-4 text-white">Equipo Especializado</h3>
-                        <p class="text-gray-300">Técnicos certificados con amplia experiencia en el sector tecnológico.</p>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-white">Equipo Especializado</h3>
+                        <p class="text-sm sm:text-base text-gray-300">Técnicos certificados con amplia experiencia en el sector tecnológico.</p>
                     </div>
                 </div>
                 
                 <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="tech-card rounded-lg p-6">
-                        <div class="text-neonPink text-4xl mb-4">
+                    <div class="tech-card rounded-lg p-4 sm:p-6">
+                        <div class="text-neonPink text-3xl sm:text-4xl mb-3 sm:mb-4">
                             <i class="fas fa-certificate"></i>
                         </div>
-                        <h3 class="text-xl font-semibold mb-4 text-white">Experiencia Certificada</h3>
-                        <p class="text-gray-300">Más de 10 años brindando soluciones tecnológicas confiables.</p>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-white">Experiencia Certificada</h3>
+                        <p class="text-sm sm:text-base text-gray-300">Más de 10 años brindando soluciones tecnológicas confiables.</p>
                     </div>
                 </div>
                 
                 <div class="text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="tech-card rounded-lg p-6">
-                        <div class="text-neonPurple text-4xl mb-4">
+                    <div class="tech-card rounded-lg p-4 sm:p-6">
+                        <div class="text-neonPurple text-3xl sm:text-4xl mb-3 sm:mb-4">
                             <i class="fas fa-dollar-sign"></i>
                         </div>
-                        <h3 class="text-xl font-semibold mb-4 text-white">Precios Competitivos</h3>
-                        <p class="text-gray-300">Tarifas justas y transparentes sin costos ocultos.</p>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-white">Precios Competitivos</h3>
+                        <p class="text-sm sm:text-base text-gray-300">Tarifas justas y transparentes sin costos ocultos.</p>
                     </div>
                 </div>
                 
                 <div class="text-center" data-aos="fade-up" data-aos-delay="400">
-                    <div class="tech-card rounded-lg p-6">
-                        <div class="text-neonBlue text-4xl mb-4">
+                    <div class="tech-card rounded-lg p-4 sm:p-6">
+                        <div class="text-neonBlue text-3xl sm:text-4xl mb-3 sm:mb-4">
                             <i class="fas fa-clock"></i>
                         </div>
-                        <h3 class="text-xl font-semibold mb-4 text-white">Respuesta Rápida</h3>
-                        <p class="text-gray-300">Atención inmediata y soluciones en el menor tiempo posible.</p>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-white">Respuesta Rápida</h3>
+                        <p class="text-sm sm:text-base text-gray-300">Atención inmediata y soluciones en el menor tiempo posible.</p>
                     </div>
                 </div>
             </div>
@@ -744,127 +974,127 @@
     </section>
 
     <!-- Sección de Testimonios -->
-    <section id="testimonios" class="py-20 tech-gradient">
+    <section id="testimonios" class="py-12 sm:py-16 md:py-20 tech-gradient">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6 neon-text">Lo Que Dicen Nuestros Clientes</h2>
-                <div class="w-24 h-1 bg-neonPurple mx-auto mb-6"></div>
-                <p class="text-xl max-w-3xl mx-auto text-gray-300">Testimonios reales de clientes satisfechos</p>
+            <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 neon-text">Lo Que Dicen Nuestros Clientes</h2>
+                <div class="w-16 sm:w-20 md:w-24 h-1 bg-neonPurple mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-lg sm:text-xl max-w-3xl mx-auto text-gray-300 px-4">Testimonios reales de clientes satisfechos</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="tech-card rounded-lg p-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex justify-center mb-4 text-yellow-400">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div class="tech-card rounded-lg p-4 sm:p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex justify-center mb-3 sm:mb-4 text-yellow-400 text-sm sm:text-base">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="text-gray-300 text-center mb-4">"Excelente servicio técnico. Solucionaron el problema de mi laptop en tiempo récord y a un precio muy justo. Totalmente recomendados."</p>
-                    <h4 class="text-white font-semibold text-center">María González</h4>
-                    <p class="text-gray-400 text-center text-sm">Diseñadora Gráfica</p>
+                    <p class="text-gray-300 text-center mb-3 sm:mb-4 text-sm sm:text-base">"Excelente servicio técnico. Solucionaron el problema de mi laptop en tiempo récord y a un precio muy justo. Totalmente recomendados."</p>
+                    <h4 class="text-white font-semibold text-center text-sm sm:text-base">María González</h4>
+                    <p class="text-gray-400 text-center text-xs sm:text-sm">Diseñadora Gráfica</p>
                 </div>
                 
-                <div class="tech-card rounded-lg p-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex justify-center mb-4 text-yellow-400">
+                <div class="tech-card rounded-lg p-4 sm:p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-center mb-3 sm:mb-4 text-yellow-400 text-sm sm:text-base">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="text-gray-300 text-center mb-4">"Profesionales de primera. Instalaron toda la red de mi oficina y configuraron el sistema de seguridad. Trabajo impecable."</p>
-                    <h4 class="text-white font-semibold text-center">Carlos Rodríguez</h4>
-                    <p class="text-gray-400 text-center text-sm">Gerente de Ventas</p>
+                    <p class="text-gray-300 text-center mb-3 sm:mb-4 text-sm sm:text-base">"Profesionales de primera. Instalaron toda la red de mi oficina y configuraron el sistema de seguridad. Trabajo impecable."</p>
+                    <h4 class="text-white font-semibold text-center text-sm sm:text-base">Carlos Rodríguez</h4>
+                    <p class="text-gray-400 text-center text-xs sm:text-sm">Gerente de Ventas</p>
                 </div>
                 
-                <div class="tech-card rounded-lg p-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex justify-center mb-4 text-yellow-400">
+                <div class="tech-card rounded-lg p-4 sm:p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex justify-center mb-3 sm:mb-4 text-yellow-400 text-sm sm:text-base">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <p class="text-gray-300 text-center mb-4">"Implementaron un sistema de seguridad para mi pequeña empresa que ha funcionado perfectamente. Muy profesionales y atentos."</p>
-                    <h4 class="text-white font-semibold text-center">Andrés Martínez</h4>
-                    <p class="text-gray-400 text-center text-sm">Propietario de Negocio</p>
+                    <p class="text-gray-300 text-center mb-3 sm:mb-4 text-sm sm:text-base">"Implementaron un sistema de seguridad para mi pequeña empresa que ha funcionado perfectamente. Muy profesionales y atentos."</p>
+                    <h4 class="text-white font-semibold text-center text-sm sm:text-base">Andrés Martínez</h4>
+                    <p class="text-gray-400 text-center text-xs sm:text-sm">Propietario de Negocio</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Sección de Contacto -->
-    <section id="contacto" class="py-20 tech-gradient">
+    <section id="contacto" class="py-12 sm:py-16 md:py-20 tech-gradient">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6 neon-text">Contáctanos</h2>
-                <div class="w-24 h-1 bg-neonBlue mx-auto mb-6"></div>
-                <p class="text-xl max-w-3xl mx-auto text-gray-300">¿Necesitas ayuda con tus equipos? Estamos a un mensaje de distancia</p>
+            <div class="text-center mb-12 sm:mb-16" data-aos="fade-up">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 neon-text">Contáctanos</h2>
+                <div class="w-16 sm:w-20 md:w-24 h-1 bg-neonBlue mx-auto mb-4 sm:mb-6"></div>
+                <p class="text-lg sm:text-xl max-w-3xl mx-auto text-gray-300 px-4">¿Necesitas ayuda con tus equipos? Estamos a un mensaje de distancia</p>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
                 <!-- Formulario de Contacto -->
-                <div class="tech-card rounded-lg p-8" data-aos="fade-right">
-                    <h3 class="text-2xl font-semibold mb-6 text-white">Envíanos un Mensaje</h3>
+                <div class="tech-card rounded-lg p-4 sm:p-6 md:p-8" data-aos="fade-right">
+                    <h3 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-white">Envíanos un Mensaje</h3>
                     <form>
-                        <div class="mb-6">
-                            <input type="text" placeholder="Nombre Completo" class="w-full px-4 py-3 rounded-lg bg-darkTech border border-neonBlue border-opacity-30 text-white focus:border-neonBlue focus:outline-none transition duration-300">
+                        <div class="mb-4 sm:mb-6">
+                            <input type="text" placeholder="Nombre Completo" class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-darkTech border border-neonBlue border-opacity-30 text-white focus:border-neonBlue focus:outline-none transition duration-300 text-sm sm:text-base">
                         </div>
-                        <div class="mb-6">
-                            <input type="email" placeholder="Correo Electrónico" class="w-full px-4 py-3 rounded-lg bg-darkTech border border-neonBlue border-opacity-30 text-white focus:border-neonBlue focus:outline-none transition duration-300">
+                        <div class="mb-4 sm:mb-6">
+                            <input type="email" placeholder="Correo Electrónico" class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-darkTech border border-neonBlue border-opacity-30 text-white focus:border-neonBlue focus:outline-none transition duration-300 text-sm sm:text-base">
                         </div>
-                        <div class="mb-6">
-                            <input type="tel" placeholder="Teléfono" class="w-full px-4 py-3 rounded-lg bg-darkTech border border-neonBlue border-opacity-30 text-white focus:border-neonBlue focus:outline-none transition duration-300">
+                        <div class="mb-4 sm:mb-6">
+                            <input type="tel" placeholder="Teléfono" class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-darkTech border border-neonBlue border-opacity-30 text-white focus:border-neonBlue focus:outline-none transition duration-300 text-sm sm:text-base">
                         </div>
-                        <div class="mb-6">
-                            <textarea placeholder="Describe tu problema técnico" rows="4" class="w-full px-4 py-3 rounded-lg bg-darkTech border border-neonBlue border-opacity-30 text-white focus:border-neonBlue focus:outline-none transition duration-300"></textarea>
+                        <div class="mb-4 sm:mb-6">
+                            <textarea placeholder="Describe tu problema técnico" rows="4" class="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg bg-darkTech border border-neonBlue border-opacity-30 text-white focus:border-neonBlue focus:outline-none transition duration-300 text-sm sm:text-base"></textarea>
                         </div>
-                        <button type="submit" class="neon-button bg-neonBlue hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition duration-300 w-full">Enviar Mensaje</button>
+                        <button type="submit" class="neon-button bg-neonBlue hover:bg-blue-600 text-white font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-lg transition duration-300 w-full text-sm sm:text-base">Enviar Mensaje</button>
                     </form>
                 </div>
                 
                 <!-- Información de Contacto -->
                 <div data-aos="fade-left">
-                    <div class="tech-card rounded-lg p-8 mb-8">
-                        <h3 class="text-2xl font-semibold mb-6 text-white">Información de Contacto</h3>
-                        <div class="space-y-4">
+                    <div class="tech-card rounded-lg p-4 sm:p-6 md:p-8 mb-6 sm:mb-8">
+                        <h3 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-white">Información de Contacto</h3>
+                        <div class="space-y-3 sm:space-y-4">
                             <div class="flex items-center">
-                                <div class="text-neonBlue text-2xl mr-4">
+                                <div class="text-neonBlue text-xl sm:text-2xl mr-3 sm:mr-4">
                                     <i class="fas fa-phone-alt"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-300">+57 300 123 4567</p>
+                                    <p class="text-gray-300 text-sm sm:text-base">+57 300 123 4567</p>
                                 </div>
                             </div>
                             <div class="flex items-center">
-                                <div class="text-neonPink text-2xl mr-4">
+                                <div class="text-neonPink text-xl sm:text-2xl mr-3 sm:mr-4">
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-300">contacto@techservicio.com</p>
+                                    <p class="text-gray-300 text-sm sm:text-base break-all">contacto@techservicio.com</p>
                                 </div>
                             </div>
                             <div class="flex items-center">
-                                <div class="text-neonPurple text-2xl mr-4">
+                                <div class="text-neonPurple text-xl sm:text-2xl mr-3 sm:mr-4">
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
                                 <div>
-                                    <p class="text-gray-300">Bogotá, Colombia</p>
-                                    <p class="text-gray-400 text-sm">Servicio a domicilio en toda la ciudad</p>
+                                    <p class="text-gray-300 text-sm sm:text-base">Bogotá, Colombia</p>
+                                    <p class="text-gray-400 text-xs sm:text-sm">Servicio a domicilio en toda la ciudad</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="tech-card rounded-lg p-8">
-                        <h3 class="text-2xl font-semibold mb-6 text-white">Horarios de Atención</h3>
-                        <div class="space-y-2 text-gray-300">
+                    <div class="tech-card rounded-lg p-4 sm:p-6 md:p-8">
+                        <h3 class="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-white">Horarios de Atención</h3>
+                        <div class="space-y-2 text-gray-300 text-sm sm:text-base">
                             <p><span class="text-neonBlue">Lunes - Viernes:</span> 8:00 AM - 8:00 PM</p>
                             <p><span class="text-neonPink">Sábados:</span> 9:00 AM - 6:00 PM</p>
                             <p><span class="text-neonPurple">Domingos:</span> 10:00 AM - 4:00 PM</p>
-                            <p class="text-yellow-400 font-semibold mt-4">¡Emergencias 24/7!</p>
+                            <p class="text-yellow-400 font-semibold mt-3 sm:mt-4 text-sm sm:text-base">¡Emergencias 24/7!</p>
                         </div>
                     </div>
                 </div>
@@ -874,44 +1104,44 @@
 
     <!-- Botón Flotante de WhatsApp -->
     <a href="https://wa.me/573001234567?text=Hola%20Punto%20Tech%20Soluciones,%20necesito%20información%20sobre%20sus%20servicios" 
-       class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg transition-all duration-300 hover:scale-110 animate-pulse-slow" 
+       class="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-green-500 hover:bg-green-600 text-white shadow-lg transition-all duration-300 hover:scale-110 animate-pulse-slow" 
        target="_blank" 
        rel="noopener noreferrer">
-        <i class="fab fa-whatsapp text-3xl"></i>
-        <span class="absolute -top-2 -right-2 flex h-5 w-5">
+        <i class="fab fa-whatsapp text-2xl sm:text-3xl"></i>
+        <span class="absolute -top-1 sm:-top-2 -right-1 sm:-right-2 flex h-4 w-4 sm:h-5 sm:w-5">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-5 w-5 bg-green-500"></span>
+            <span class="relative inline-flex rounded-full h-4 w-4 sm:h-5 sm:w-5 bg-green-500"></span>
         </span>
     </a>
 
     <!-- Footer -->
-    <footer class="bg-cyberBlack border-t border-neonBlue border-opacity-30 py-10">
+    <footer class="bg-cyberBlack border-t border-neonBlue border-opacity-30 py-6 sm:py-8 md:py-10">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                <div>
-                    <div class="text-2xl font-bold neon-text mb-4 font-orbitron">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
+                <div class="sm:col-span-2 md:col-span-1">
+                    <div class="text-xl sm:text-2xl font-bold neon-text mb-3 sm:mb-4 font-orbitron">
                         <span class="text-white">PUNTO</span><span class="text-neonBlue">TECH</span> <span class="text-neonPink">SOLUCIONES</span>
                     </div>
-                    <p class="text-gray-400 mb-4">Expertos en soluciones tecnológicas integrales para empresas y particulares en Bogotá.</p>
-                    <div class="flex space-x-4">
+                    <p class="text-gray-400 mb-3 sm:mb-4 text-sm sm:text-base">Expertos en soluciones tecnológicas integrales para empresas y particulares en Bogotá.</p>
+                    <div class="flex space-x-3 sm:space-x-4">
                         <a href="#" class="text-gray-400 hover:text-neonBlue transition duration-300">
-                            <i class="fab fa-facebook-f text-xl"></i>
+                            <i class="fab fa-facebook-f text-lg sm:text-xl"></i>
                         </a>
                         <a href="#" class="text-gray-400 hover:text-neonPink transition duration-300">
-                            <i class="fab fa-instagram text-xl"></i>
+                            <i class="fab fa-instagram text-lg sm:text-xl"></i>
                         </a>
                         <a href="#" class="text-gray-400 hover:text-neonPurple transition duration-300">
-                            <i class="fab fa-twitter text-xl"></i>
+                            <i class="fab fa-twitter text-lg sm:text-xl"></i>
                         </a>
                         <a href="#" class="text-gray-400 hover:text-neonBlue transition duration-300">
-                            <i class="fab fa-linkedin-in text-xl"></i>
+                            <i class="fab fa-linkedin-in text-lg sm:text-xl"></i>
                         </a>
                     </div>
                 </div>
                 
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Servicios Principales</h4>
-                    <ul class="text-gray-400 space-y-2">
+                    <h4 class="text-white font-semibold mb-3 sm:mb-4 text-base sm:text-lg">Servicios Principales</h4>
+                    <ul class="text-gray-400 space-y-1 sm:space-y-2 text-sm sm:text-base">
                         <li><a href="#" class="hover:text-neonBlue transition duration-300">Reparación de Computadores</a></li>
                         <li><a href="#" class="hover:text-neonBlue transition duration-300">Instalación de Redes</a></li>
                         <li><a href="#" class="hover:text-neonBlue transition duration-300">Soporte Técnico 24/7</a></li>
@@ -920,18 +1150,18 @@
                 </div>
                 
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Contacto Rápido</h4>
-                    <div class="text-gray-400 space-y-2">
+                    <h4 class="text-white font-semibold mb-3 sm:mb-4 text-base sm:text-lg">Contacto Rápido</h4>
+                    <div class="text-gray-400 space-y-1 sm:space-y-2 text-sm sm:text-base">
                         <p><i class="fas fa-phone text-neonBlue mr-2"></i> +57 300 123 4567</p>
-                        <p><i class="fas fa-envelope text-neonPink mr-2"></i> contacto@techservicio.com</p>
+                        <p><i class="fas fa-envelope text-neonPink mr-2"></i> <span class="break-all">contacto@techservicio.com</span></p>
                         <p><i class="fas fa-map-marker-alt text-neonPurple mr-2"></i> Bogotá, Colombia</p>
                     </div>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 pt-8 text-center">
-                <p class="text-gray-400 text-sm">
-                    &copy; 2024 Punto Tech Soluciones. Todos los derechos reservados. | 
+            <div class="border-t border-gray-700 pt-6 sm:pt-8 text-center">
+                <p class="text-gray-400 text-xs sm:text-sm">
+                    &copy; 2025 Punto Tech Soluciones. Todos los derechos reservados.<br class="sm:hidden"> | 
                     <a href="#" class="hover:text-neonBlue transition duration-300">Política de Privacidad</a> | 
                     <a href="#" class="hover:text-neonBlue transition duration-300">Términos de Servicio</a>
                 </p>
@@ -1071,6 +1301,26 @@
                 });
             });
         });
+        
+        // Función para mostrar/ocultar detalles de servicios
+        function toggleServiceDetails(element) {
+            const details = element.querySelector('.service-details');
+            const button = element.querySelector('.toggle-btn');
+            
+            if (details.classList.contains('hidden')) {
+                details.classList.remove('hidden');
+                details.style.maxHeight = details.scrollHeight + 'px';
+                button.innerHTML = '<i class="fas fa-chevron-up mr-2"></i>Ocultar detalles';
+                element.classList.add('expanded');
+            } else {
+                details.style.maxHeight = '0';
+                setTimeout(() => {
+                    details.classList.add('hidden');
+                }, 300);
+                button.innerHTML = '<i class="fas fa-chevron-down mr-2"></i>Ver detalles';
+                element.classList.remove('expanded');
+            }
+        }
     </script>
 </body>
 </html>
